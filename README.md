@@ -6,7 +6,7 @@
 
 ## Authors & Credits
 
-- *Eduardo Carvalho* aka Swagger
+- *Eduardo "Swagger" Carvalho*
 
 - *Feral Interactive* - for their assistance in making the Blender Addon
 
