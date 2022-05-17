@@ -22,7 +22,7 @@ ABOUT
 Installation
 ---------------
 
-To install this addon, instructions can be found at Blender's documentation:
+To install this addon, download the zip in **releases** and follow Blender's documentation on Addon Installation:
 
 > https://docs.blender.org/manual/en/latest/editors/preferences/addons.html#installing-add-ons
 
