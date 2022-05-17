@@ -26,6 +26,10 @@ To install this addon, instructions can be found at Blender's documentation:
 
 > https://docs.blender.org/manual/en/latest/editors/preferences/addons.html#installing-add-ons
 
+```
+[Installation](https://github.com/iamemc/LOD_Generator/images/addon_installation.png)
+```
+
 ## Usage Instructions
 
 	1. To use the addon, after enabling, a small panel called "**Mod - Rome Remastered**" will appear in the viewport sidebar.
