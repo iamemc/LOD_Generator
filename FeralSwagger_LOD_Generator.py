@@ -77,15 +77,17 @@ def limitBoneWeighting(context):
         if obj.name in ("ARMATURE", "armature","Armature"):
             armature_exists = True
     if armature_exists == True:
-        if obj.name not in ("ARMATURE", "armature","Armature",\
-                            "primary_weapon", "primary__weapon",\
-                            "secondary_weapon", "secondary__weapon"):
-            print("Limiting Bone Weights Now")
-            bpy.ops.paint.weight_paint_toggle()
-            bpy.context.object.data.use_paint_mask_vertex = True
-            bpy.ops.paint.vert_select_all(action='SELECT')
-            bpy.ops.object.vertex_group_limit_total(limit=1)
-            bpy.ops.paint.weight_paint_toggle()
+        for obj in context.scene.objects:
+            if obj.name not in ("ARMATURE", "armature","Armature",\
+                                "primary_weapon", "secondary_weapon",\
+                                "secondary_weapon", "secondary__weapon"):
+                print(obj.name)
+                print("Limiting Bone Weights Now")
+                bpy.ops.paint.weight_paint_toggle()
+                context.object.data.use_paint_mask_vertex = True
+                bpy.ops.paint.vert_select_all(action='SELECT')
+                bpy.ops.object.vertex_group_limit_total(limit=1)
+                bpy.ops.paint.weight_paint_toggle()
 
 def checkIfDirectoryExists(file_name_string):
     if not os.path.isdir(file_name_string):
@@ -131,8 +133,9 @@ def generate_LODs(context, input_dir, output_dir, decimate_ratio):
                 # delete any previous lod naming
                 file_name = file_name.replace("_lod0","")
                 output_file_name = '{file_name}_{lod_level}.dae'.format(file_name = file_name[:-4], lod_level = LOD_level)
-                print(output_file_name)
                 limitBoneWeighting(context)
+                limitBoneWeighting(context)
+                print(output_file_name)
                 # Export Mesh
                 bpy.ops.wm.collada_export(filepath=os.path.join(output_dir, output_file_name))
                 purgeObjects() #REQUIRED, so the next loop doesn't inherit data from the previous models
